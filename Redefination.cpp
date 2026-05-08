@@ -1,0 +1,50 @@
+#include<iostream>
+using namespace std;
+
+
+class Base
+{
+
+    public:
+        int i,j;
+
+        void fun()
+        { cout<<"Inside Base fun\n"; }
+
+        void gun()
+        { cout<<"Inside Base gun\n"; }
+
+        void sun()
+        { cout<<"Inside Base sun\n"; }
+
+};  //8 bytes
+class Derived: public Base
+{
+    public:
+        int x,y;
+
+        void fun()  //redefination
+        { cout<<"Inside Derived fun\n"; }
+
+        void sun()
+        { cout<<"Inside Derived sun\n"; }
+
+        void run()   //defination
+        { cout<<"Inside Derived run\n"; }
+
+}; //16 bytes
+int main()
+{
+    
+    Base *bp=NULL;
+    
+    bp= new Derived();  //upcasting
+
+    bp-> fun();    //base fun
+    bp-> gun();    //base gun
+    bp-> sun();    //base sun
+    //bp-> run();    //error
+
+
+    return 0;
+}
